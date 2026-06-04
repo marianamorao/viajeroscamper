@@ -4,124 +4,229 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Viajeros Camper · Zaragoza</title>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100vh;
       background: linear-gradient(160deg, #0a2020 0%, #0f3030 50%, #0a2818 100%);
-      display: flex; align-items: flex-start; justify-content: center;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
       padding: 2rem 1rem 3rem;
       font-family: 'DM Sans', sans-serif;
     }
 
     .vc-wrap {
-      width: 100%; max-width: 400px;
-      display: flex; flex-direction: column; align-items: center;
-      position: relative;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .vc-logo {
-      width: 90px; height: 90px; border-radius: 50%;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
       overflow: hidden;
       border: 3px solid rgba(230,160,30,0.6);
       margin-bottom: 0.75rem;
     }
-    .vc-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .vc-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     .vc-name {
-      font-family: 'Playfair Display', serif; font-size: 1.5rem;
-      color: #f0e4b0; margin-bottom: 0.2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #f0e4b0;
+      margin-bottom: 0.2rem;
     }
-    .vc-handle { font-size: 0.78rem; color: rgba(255,255,255,0.38); margin-bottom: 0.45rem; }
+
+    .vc-handle {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 0.45rem;
+    }
+
     .vc-bio {
-      font-size: 0.85rem; color: rgba(255,255,255,0.62);
-      text-align: center; max-width: 280px; line-height: 1.5;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.62);
+      text-align: center;
+      max-width: 280px;
+      line-height: 1.5;
       margin-bottom: 0.35rem;
     }
+
     .vc-location {
-      font-size: 0.76rem; color: rgba(230,160,30,0.85);
-      display: flex; align-items: center; gap: 4px;
+      font-size: 0.76rem;
+      color: rgba(230,160,30,0.85);
+      display: flex;
+      align-items: center;
+      gap: 4px;
       margin-bottom: 1.5rem;
     }
 
-    .vc-top { width: 100%; display: flex; flex-direction: column; gap: 9px; }
+    .vc-top {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
 
     .vc-btn {
-      display: flex; align-items: center; gap: 11px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
       background: rgba(255,255,255,0.07);
       border: 0.5px solid rgba(255,255,255,0.18);
-      border-radius: 999px; padding: 0.65rem 1.2rem;
-      color: #fff; font-family: 'DM Sans', sans-serif;
-      font-size: 0.88rem; font-weight: 500;
-      text-decoration: none; width: 100%;
-      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      border-radius: 999px;
+      padding: 0.65rem 1.2rem;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.2s;
     }
-    .vc-btn:hover { background: rgba(230,160,30,0.18); border-color: rgba(230,160,30,0.55); transform: translateY(-1px); }
-    .vc-btn.wa { background: rgba(40,200,100,0.12); border-color: rgba(40,200,100,0.38); }
-    .vc-btn .label { flex: 1; text-align: center; }
+
+    .vc-btn:hover {
+      background: rgba(230,160,30,0.18);
+      border-color: rgba(230,160,30,0.55);
+      transform: translateY(-1px);
+    }
+
+    .vc-btn.wa {
+      background: rgba(40,200,100,0.12);
+      border-color: rgba(40,200,100,0.38);
+    }
+
+    .vc-btn .label {
+      flex: 1;
+      text-align: center;
+    }
 
     .plat-icon {
-      width: 26px; height: 26px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.9rem; flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
-    .ic-wa   { background: rgba(40,200,100,0.25); }
-    .ic-ig   { background: rgba(225,100,160,0.25); }
-    .ic-yaes { background: rgba(29,158,117,0.3); }
-    .ic-camp { background: rgba(230,160,30,0.25); }
+
+    .ic-wa { background: rgba(40,200,100,0.25); }
+    .ic-ig { background: rgba(225,100,160,0.25); }
+
     .arr { font-size: 12px; opacity: 0.35; }
 
     .section-label {
-      font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(230,160,30,0.5); margin: 1.5rem 0 0.6rem;
+      font-size: 0.67rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(230,160,30,0.5);
+      margin: 1.5rem 0 0.6rem;
       width: 100%;
     }
 
-    .furgo-grid { width: 100%; display: flex; flex-direction: column; gap: 14px; }
+    /* FURGONETAS NUEVO DISEÑO */
+    .furgo-grid {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
     .furgo-card {
       border: 0.5px solid rgba(230,160,30,0.2);
-      border-radius: 14px; overflow: hidden;
+      border-radius: 16px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      text-align: center;
     }
+
     .furgo-header {
-      display: flex; align-items: center; gap: 12px;
-      background: rgba(255,255,255,0.05);
-      border-bottom: 0.5px solid rgba(255,255,255,0.1);
-      overflow: hidden; padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
+
     .furgo-photo {
-      width: 72px; height: 62px; object-fit: cover; flex-shrink: 0;
+      width: 110px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 12px;
     }
+
     .furgo-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1rem; color: #f0e4b0; font-weight: 700;
+      font-size: 1.1rem;
+      color: #f0e4b0;
     }
 
-    .furgo-links { display: flex; flex-direction: column; }
+    .furgo-actions {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
 
-    .plat-btn {
-      display: flex; align-items: center; gap: 10px;
-      padding: 0.6rem 1rem;
-      background: transparent;
-      border: none; border-bottom: 0.5px solid rgba(255,255,255,0.07);
-      color: #fff; font-family: 'DM Sans', sans-serif;
-      font-size: 0.84rem; font-weight: 500;
+    .furgo-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      padding: 0.75rem 0.8rem;
+      border-radius: 999px;
+
+      font-size: 0.85rem;
+      font-weight: 500;
       text-decoration: none;
-      transition: background 0.18s;
+
+      background: rgba(255,255,255,0.07);
+      border: 0.5px solid rgba(255,255,255,0.18);
+      color: white;
+
+      transition: 0.2s;
     }
-    .plat-btn:last-child { border-bottom: none; }
-    .plat-btn:hover { background: rgba(230,160,30,0.12); }
-    .plat-btn .plat-name { flex: 1; }
+
+    .furgo-btn:hover {
+      background: rgba(230,160,30,0.18);
+      border-color: rgba(230,160,30,0.55);
+      transform: translateY(-1px);
+    }
+
+    .furgo-btn.ya {
+      background: rgba(29,158,117,0.15);
+      border-color: rgba(29,158,117,0.35);
+    }
+
+    .furgo-btn.ca {
+      background: rgba(230,160,30,0.12);
+      border-color: rgba(230,160,30,0.35);
+    }
 
     .vc-footer {
-      margin-top: 2rem; font-size: 0.67rem;
+      margin-top: 2rem;
+      font-size: 0.67rem;
       color: rgba(255,255,255,0.18);
     }
   </style>
 </head>
+
 <body>
   <div class="vc-wrap">
 
@@ -132,18 +237,19 @@
     <h1 class="vc-name">Viajeros Camper</h1>
     <p class="vc-handle">@viajeroscamper.es</p>
     <p class="vc-bio">Alquiler de furgonetas camper · ¿Te imaginas viviendo momentos así?</p>
-    <p class="vc-location"><i class="ti ti-map-pin" aria-hidden="true"></i> Zaragoza</p>
+    <p class="vc-location"><i class="ti ti-map-pin"></i> Zaragoza</p>
 
     <div class="vc-top">
       <a class="vc-btn wa" href="https://wa.me/34614326124" target="_blank">
-        <span class="plat-icon ic-wa"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></span>
+        <span class="plat-icon ic-wa"><i class="ti ti-brand-whatsapp"></i></span>
         <span class="label">Reserva tu próxima aventura 👇</span>
-        <i class="ti ti-arrow-right arr" aria-hidden="true"></i>
+        <i class="ti ti-arrow-right arr"></i>
       </a>
+
       <a class="vc-btn" href="https://www.instagram.com/viajeroscamper.es/" target="_blank">
-        <span class="plat-icon ic-ig"><i class="ti ti-brand-instagram" aria-hidden="true"></i></span>
+        <span class="plat-icon ic-ig"><i class="ti ti-brand-instagram"></i></span>
         <span class="label">Síguenos en Instagram</span>
-        <i class="ti ti-arrow-right arr" aria-hidden="true"></i>
+        <i class="ti ti-arrow-right arr"></i>
       </a>
     </div>
 
@@ -157,16 +263,13 @@
           <img class="furgo-photo" src="Chiquilla.jpg" alt="Chiquilla" />
           <span class="furgo-title">Chiquilla</span>
         </div>
-        <div class="furgo-links">
-          <a class="plat-btn" href="https://www.yescapa.es/campers/78633" target="_blank">
-            <span class="plat-icon ic-yaes"><i class="ti ti-steering-wheel" aria-hidden="true"></i></span>
-            <span class="plat-name">Yescapa</span>
-            <i class="ti ti-arrow-right arr" aria-hidden="true"></i>
+
+        <div class="furgo-actions">
+          <a class="furgo-btn ya" href="https://www.yescapa.es/campers/78633" target="_blank">
+            <i class="ti ti-steering-wheel"></i> Yescapa
           </a>
-          <a class="plat-btn" href="https://www.camplify.es/rv/132764?startDate=2026-06-22&endDate=2026-06-24&queryID=64a489b5d53d05fd3c39958538a00b3d" target="_blank">
-            <span class="plat-icon ic-camp"><i class="ti ti-camper" aria-hidden="true"></i></span>
-            <span class="plat-name">Camplify</span>
-            <i class="ti ti-arrow-right arr" aria-hidden="true"></i>
+          <a class="furgo-btn ca" href="https://www.camplify.es/rv/132764?startDate=2026-06-22&endDate=2026-06-24&queryID=64a489b5d53d05fd3c39958538a00b3d" target="_blank">
+            <i class="ti ti-camper"></i> Camplify
           </a>
         </div>
       </div>
@@ -177,16 +280,13 @@
           <img class="furgo-photo" src="Anayet.jpg" alt="Anayet" />
           <span class="furgo-title">Anayet</span>
         </div>
-        <div class="furgo-links">
-          <a class="plat-btn" href="https://www.yescapa.es/campers/90894" target="_blank">
-            <span class="plat-icon ic-yaes"><i class="ti ti-steering-wheel" aria-hidden="true"></i></span>
-            <span class="plat-name">Yescapa</span>
-            <i class="ti ti-arrow-right arr" aria-hidden="true"></i>
+
+        <div class="furgo-actions">
+          <a class="furgo-btn ya" href="https://www.yescapa.es/campers/90894" target="_blank">
+            <i class="ti ti-steering-wheel"></i> Yescapa
           </a>
-          <a class="plat-btn" href="https://www.camplify.es/rv/139938?startDate=2026-06-22&endDate=2026-06-24&queryID=64a489b5d53d05fd3c39958538a00b3d" target="_blank">
-            <span class="plat-icon ic-camp"><i class="ti ti-camper" aria-hidden="true"></i></span>
-            <span class="plat-name">Camplify</span>
-            <i class="ti ti-arrow-right arr" aria-hidden="true"></i>
+          <a class="furgo-btn ca" href="https://www.camplify.es/rv/139938?startDate=2026-06-22&endDate=2026-06-24" target="_blank">
+            <i class="ti ti-camper"></i> Camplify
           </a>
         </div>
       </div>
@@ -197,23 +297,21 @@
           <img class="furgo-photo" src="Luna.jpg" alt="Luna" />
           <span class="furgo-title">Luna</span>
         </div>
-        <div class="furgo-links">
-          <a class="plat-btn" href="https://www.yescapa.es/campers/111084" target="_blank">
-            <span class="plat-icon ic-yaes"><i class="ti ti-steering-wheel" aria-hidden="true"></i></span>
-            <span class="plat-name">Yescapa</span>
-            <i class="ti ti-arrow-right arr" aria-hidden="true"></i>
+
+        <div class="furgo-actions">
+          <a class="furgo-btn ya" href="https://www.yescapa.es/campers/111084" target="_blank">
+            <i class="ti ti-steering-wheel"></i> Yescapa
           </a>
-          <a class="plat-btn" href="https://www.camplify.es/rv/151751" target="_blank">
-            <span class="plat-icon ic-camp"><i class="ti ti-camper" aria-hidden="true"></i></span>
-            <span class="plat-name">Camplify</span>
-            <i class="ti ti-arrow-right arr" aria-hidden="true"></i>
+          <a class="furgo-btn ca" href="https://www.camplify.es/rv/151751" target="_blank">
+            <i class="ti ti-camper"></i> Camplify
           </a>
         </div>
       </div>
 
     </div>
 
-    <p class="vc-footer">viajeroscamper.es · Zaragoza </p>
+    <p class="vc-footer">viajeroscamper.es · Zaragoza</p>
+
   </div>
 </body>
 </html>
